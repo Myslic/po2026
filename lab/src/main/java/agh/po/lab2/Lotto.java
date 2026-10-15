@@ -32,7 +32,7 @@ public class Lotto {
                 }
             }
         System.out.print("\nLiczba trafien = " + trafienia);
-
+        ArrayList<Integer> komputer = new ArrayList<>();
     }
 }
 

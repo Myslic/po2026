@@ -5,8 +5,6 @@ import org.junit.Assert;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
-
 public class CodingBatTest {
     CodingBat cd = new CodingBat();
     @org.junit.Test
@@ -40,13 +38,31 @@ public class CodingBatTest {
         map.put("a","aaa");
         map.put("b","bbb");
         map.put("c", "bbb");
+        Map<String, String> map1 =new HashMap<String, String>();
+        map1.put("a","aaa");
+        map1.put("b","aaa");
+        map1.put("c","bbb");
+        Map<String, String> map12 = Map.of("c","bbb");
+        Map<String, String> map2 = new HashMap<String, String>();
+        map2.put("c","bbb");
+        Map<String, String> map22 = Map.of("c","bbb");
+
         Assert.assertEquals(map, cd.mapAB2(map));
+        Assert.assertEquals(map12, cd.mapAB2(map1));
+        Assert.assertEquals(map22 , cd.mapAB2(map2));
     }
+
     @org.junit.Test
     public void wordCount() {
         String[] x = {"a","a","b","c"};
         Map<String, Integer> map = Map.of("a", 2, "b", 1,"c",1);
-        Assert.assertEquals(map,cd.wordCount(x));
+        String[] y = {"a","a","a","a","a"};
+        Map<String, Integer> map2 = Map.of("a",5);
+        String[] z = {"b","c","b","c","b","c","b"};
+        Map<String, Integer> map3 = Map.of("b",4,"c",3);
+        Assert.assertEquals(map, cd.wordCount(x));
+        Assert.assertEquals(map2, cd.wordCount(y));
+        Assert.assertEquals(map3, cd.wordCount(z));
     }
 
 }

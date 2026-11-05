@@ -1,5 +1,7 @@
 package agh.po.lab3;
 
+import java.util.*;
+
 public class CodingBat {
     boolean doubleX(String str) {
         int c = str.indexOf("x");
@@ -47,10 +49,46 @@ public class CodingBat {
         }
         return sum;
     }
+    public Map<String, String> mapAB2(Map<String, String> map) {
+        if(map.containsKey("a") && map.containsKey("b")){
+            String a = map.get("a");
+            String b = map.get("b");
+            if(a.equals(b)){
+                map.remove("a");
+                map.remove("b");
+                return map;
+            }
+            else
+                return map;
+        }
+        else
+            return map;
+    }
+    public Map<String, Integer> wordCount(String[] strings) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        for(int i = 0; i < strings.length; i++){
+            String temp = strings[i];
+            if(!map.containsKey(temp)) {
+                int c = 1;
+                for (int j = i + 1; j < strings.length; j++) {
+                    if (strings[j].equals(temp))
+                        c++;
+                }
+                map.put(temp, c);
+            }
+        }
+        return map;
+    }
+
 
     public static void main(String[] args) {
         CodingBat nowy = new CodingBat();
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("a","aaa");
+        map.put("b","bbb");
+        map.put("c", "bbb");
         int[] y = new int[]{0};
-        System.out.print(nowy.sum13(y));
+        String[] x = {"a","a","b","c"};
+        System.out.print(nowy.wordCount(x));
     }
 }
